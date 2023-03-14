@@ -28,11 +28,11 @@ router.post("/login", async (req, res) => {
 
   res
     .cookie("jwt", jwtToken, {
-      httpOnly: true, //true stops browser to access cookie
+      // httpOnly: true, //true stops browser to access cookie
       secure: true, //--> SET TO TRUE ON PRODUCTION //if true it sends https, else sends http,
       //a secue cookie is sent only to https n not http
-      domain: "online-food-order-patricia.netlify.app",
-      path: "/",
+      // domain: "online-food-order-patricia.netlify.app",
+      // path: "/",
     })
     .status(200)
     .json({
