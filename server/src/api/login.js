@@ -31,8 +31,8 @@ router.post("/login", async (req, res) => {
       httpOnly: true, //true stops browser to access cookie
       secure: true, //--> SET TO TRUE ON PRODUCTION //if true it sends https, else sends http,
       //a secue cookie is sent only to https n not http
-      domain: "https://online-food-order-patricia.netlify.app",
-      path: "/",
+      // domain: "netlify.app",
+      // path: "/",
       sameSite: "none", //doing it to make it work on netlify not to be done in production
       maxAge: 2.63e9, // approx 1 month
     })
