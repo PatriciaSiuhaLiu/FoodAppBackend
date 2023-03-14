@@ -87,6 +87,7 @@ router.get(
       domain: "online-food-order-nf2n.onrender.com",
       // setting to parent domain so that any cookie for subdomains of this main domain
       //render,com will be deleted
+      sameSite: "none",
       path: "/",
     });
     res.send({ message: "User logged out" });
