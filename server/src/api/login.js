@@ -29,7 +29,10 @@ router.post("/login", async (req, res) => {
   res
     .cookie("jwt", jwtToken, {
       httpOnly: true, //true stops browser to access cookie
-      secure: false, //--> SET TO TRUE ON PRODUCTION
+      secure: true, //--> SET TO TRUE ON PRODUCTION //if true it sends https, else sends http,
+      //a secue cookie is sent only to https n not http
+      domain: "online-food-order-patricia.netlify.app",
+      path: "/",
     })
     .status(200)
     .json({
@@ -37,6 +40,8 @@ router.post("/login", async (req, res) => {
       token: jwtToken,
       user: { email, name, roles },
     });
+
+  //https://online-food-order-patricia.netlify.app
   //   res
   //     .cookie("token", jwtToken)
   //     .status(200)
@@ -69,7 +74,10 @@ router.get(
 
   (req, res) => {
     // req.logout();
-    res.clearCookie("jwt", { domain: "localhost", path: "/" });
+    res.clearCookie("jwt", {
+      domain: "online-food-order-patricia.netlify.app",
+      path: "/",
+    });
     res.send({ message: "User logged out" });
   }
 );
