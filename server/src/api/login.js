@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
   res
     .cookie("jwt", jwtToken, {
       httpOnly: true, //true stops browser to access cookie
-      secure: true, //--> SET TO TRUE ON PRODUCTION //if true it sends https, else sends http,
+      secure: false, //--> SET TO TRUE ON PRODUCTION //if true it sends https, else sends http,
       //a secue cookie is sent only to https n not http
       // domain: "netlify.app",   //if you do not provide any domain here
       ///domain: "onrender.com",
@@ -89,7 +89,7 @@ router.get(
       //render,com will be deleted
       sameSite: "none",
       httpOnly: true, //true stops browser to access cookie
-      secure: true,
+      // secure: true,
       path: "/",
     });
     res.send({ message: "User logged out" });
