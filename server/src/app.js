@@ -22,6 +22,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "https://online-food-order-patricia.netlify.app",
+      "https://online-food-order-frontend.onrender.com",
     ],
     credentials: true,
   })
