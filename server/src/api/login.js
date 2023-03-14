@@ -31,7 +31,10 @@ router.post("/login", async (req, res) => {
       httpOnly: true, //true stops browser to access cookie
       secure: true, //--> SET TO TRUE ON PRODUCTION //if true it sends https, else sends http,
       //a secue cookie is sent only to https n not http
-      // domain: "netlify.app",
+      // domain: "netlify.app",   //if you do not provide any domain here
+      //it will pick the domain of the backend ie. my-backend-app.netlify.app
+      // if your ui is on different domain like renderit wil be problem
+      //you cab provide a main domain like netlify.com and not full url of subdomain
       // path: "/",
       sameSite: "none", //doing it to make it work on netlify not to be done in production
       maxAge: 2.63e9, // approx 1 month
@@ -78,7 +81,8 @@ router.get(
   (req, res) => {
     // req.logout();
     res.clearCookie("jwt", {
-      domain: "online-food-order-patricia.netlify.app",
+      domain: "onrender.com", // setting to parent domain so that any cookie for subdomains of this main domain
+      //render,com will be deleted
       path: "/",
     });
     res.send({ message: "User logged out" });
