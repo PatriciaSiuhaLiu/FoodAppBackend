@@ -88,6 +88,8 @@ router.get(
       // setting to parent domain so that any cookie for subdomains of this main domain
       //render,com will be deleted
       sameSite: "none",
+      httpOnly: true, //true stops browser to access cookie
+      secure: true,
       path: "/",
     });
     res.send({ message: "User logged out" });
