@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
       // if your ui is on different domain like renderit wil be problem
       //you cab provide a main domain like netlify.com and not full url of subdomain
       // path: "/",
-      // sameSite: "none", //doing it to make it work on netlify not to be done in production
+      sameSite: "none", //doing it to make it work on netlify not to be done in production
       maxAge: 2.63e9, // approx 1 month
     })
 
@@ -87,7 +87,7 @@ router.get(
       domain: "online-food-order-nf2n.onrender.com",
       // setting to parent domain so that any cookie for subdomains of this main domain
       //render,com will be deleted
-      // sameSite: "none",
+      sameSite: "none",
       httpOnly: true, //true stops browser to access cookie
       secure: true,
       path: "/",
