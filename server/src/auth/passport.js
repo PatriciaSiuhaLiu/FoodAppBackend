@@ -18,14 +18,13 @@ passport.use(
       //  jwtFromRequest: cookieExtractor,
       secretOrKey: process.env.SECRETKEY,
     },
-    function (jwtPayload, done) {
-      return User.findOne({ email: jwtPayload.email })
-        .then((user) => {
-          return done(null, user);
-        })
-        .catch((err) => {
-          return done(err);
-        });
+    async function (jwtPayload, done) {
+      try {
+        const user = await User.findOne({ email: jwtPayload.email });
+        return done(null, user);
+      } catch (err) {
+        return done(err);
+      }
     }
   )
 );
