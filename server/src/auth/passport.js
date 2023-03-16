@@ -14,7 +14,8 @@ const cookieExtractor = function (req) {
 passport.use(
   new JwtStrategy(
     {
-      jwtFromRequest: cookieExtractor, //ExtractJwt.fromAuthHeaderAsBearerToken(), //cookieExtractor(),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      //  jwtFromRequest: cookieExtractor,
       secretOrKey: process.env.SECRETKEY,
     },
     function (jwtPayload, done) {
