@@ -14,8 +14,8 @@ const cookieExtractor = function (req) {
 passport.use(
   new JwtStrategy(
     {
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      //  jwtFromRequest: cookieExtractor,
+      // jwtFromRequest: cookieExtractor,  //For cookie based login/logout use this custom method
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(), //for local storage etc based login with bearer set in header use passport's fromAuthHeaderAsBearerToken method
       secretOrKey: process.env.SECRETKEY,
     },
     async function (jwtPayload, done) {
