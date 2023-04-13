@@ -20,6 +20,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
+      "http://localhost:4200",
       "https://online-food-order-patricia.netlify.app",
       "https://online-food-order-frontend.onrender.com",
     ],
