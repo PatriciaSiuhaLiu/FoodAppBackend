@@ -13,6 +13,7 @@ const api = require("./api");
 const app = express();
 const cookieParser = require("cookie-parser");
 
+
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 // app.use(cors({ origin: "http://127.0.0.1:5173", credentials: true }));
@@ -23,6 +24,7 @@ app.use(
       "http://localhost:4200",
       "https://online-food-order-patricia.netlify.app",
       "https://online-food-order-frontend.onrender.com",
+      "https://foodapp-9eaf7.web.app"
     ],
     credentials: true,
   })
