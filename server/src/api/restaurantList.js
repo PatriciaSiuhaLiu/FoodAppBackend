@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 const router = express.Router();
 // app.use(bodyParser.urlencoded({'extended':'true'}));            
 // app.use(bodyParser.json());
+const crypto = require('crypto');
 
 
 
@@ -45,14 +46,14 @@ router.post('/restaurants', (req,res) => {
         email: req.body.email,
         phone: req.body.phone
     };
-    db.find({},function(err,results){
-        if(err){
-            res.send(err);
+    db.create(restaurant).then(
+        ()=> {
+            res.status(201).json(restaurant);
+        },
+        (err) => {
+            res.status(500).send(err);
         }
-        else{
-            res.status(200).json({results});
-        }
-    })
+    ); 
 })
 
 
